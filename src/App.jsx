@@ -1,35 +1,53 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import "bulma/css/bulma.css";
 
-function App() {
-  const [count, setCount] = useState(0)
+import ProfileCard from "./ProfileCard";
+import alexa from "./assets/alexa.png";
+import siri from "./assets/siri.png";
+import cortana from "./assets/cortana.png";
 
+const App = () => {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div>
+      <section className="hero is-primary">
+        <div className="hero-body">
+          <p>Personal Digital Assistants</p>
+        </div>
+      </section>
 
-export default App
+      <div className="container">
+        <section className="section">
+          <div className="columns">
+            <div className="column is-3">
+              <ProfileCard
+                title={"Alexa"}
+                twitter={"@alexa99"}
+                img={alexa}
+                description="Alexa was created by Amazon."
+              />
+            </div>
+            <div className="column is-3">
+              {" "}
+              <ProfileCard
+                title={"Siri"}
+                twitter={"@siri119"}
+                img={siri}
+                description="Siri was created by Apple and is being phased out."
+              />
+            </div>
+            <div className="column is-3">
+              <ProfileCard
+                title={"Cortana"}
+                twitter={"@cortana234"}
+                img={cortana}
+                description="Cortana was created by Microsoft and No one knows what it does."
+              />
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  );
+};
+
+export default App;
